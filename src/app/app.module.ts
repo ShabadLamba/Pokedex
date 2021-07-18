@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { GetPokemonMovesDetailsPipe } from './components/pokedex-main/components/pokemon-details/get-pokemon-moves-details.pipe';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     MatTooltipModule,
+    LazyLoadImageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

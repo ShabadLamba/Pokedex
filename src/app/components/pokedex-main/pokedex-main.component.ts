@@ -3,13 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-pokedex-main',
   templateUrl: './pokedex-main.component.html',
-  styleUrls: ['./pokedex-main.component.scss']
+  styleUrls: ['./pokedex-main.component.scss'],
 })
 export class PokedexMainComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  pokeballImageSrc = './../../../assets/pokeball.png';
+  ngOnInit(): void {}
 }

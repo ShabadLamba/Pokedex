@@ -1,8 +1,8 @@
 <div class="container">
     <div class="title">
-        <span><img src="./../../../assets/pokeball.png" class="pokeball-img"></span>
-        <span style="text-align: center;">ULTIMATE POKEDEX</span>
-        <span><img src="./../../../assets/pokeball.png" class="pokeball-img"></span>
+        <span><img [lazyLoad]="pokeballImageSrc" class="pokeball-img" /></span>
+        <span style="text-align: center">ULTIMATE POKEDEX</span>
+        <span><img [lazyLoad]="pokeballImageSrc" class="pokeball-img" /></span>
     </div>
     <div class="pokemon-details-wrapper">
         <app-pokemon-details></app-pokemon-details>
