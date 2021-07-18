@@ -1,0 +1,79 @@
+<div class="container">
+    <span class="title-details"> Find a pokemon </span>
+    <!-- <div class="input-box"> -->
+    <span class="searchBox">
+    <form [formGroup]="searchForm" (ngSubmit)="searchPokemon()">
+      <mat-icon class="searchIcon"> search </mat-icon>
+      <span style="width: 92%">
+        <input
+          formControlName="searchString"
+          class="input-box-pokemon"
+          placeholder="Type a name or an id"
+        />
+      </span>
+    </form>
+    </span>
+    <div class="pokemon-details-main">
+        <mat-spinner [color]="'warn'" *ngIf="searchForm.disabled"></mat-spinner>
+        <div class="pokemon-details" *ngIf="pokemonData && searchForm.enabled">
+            <div class="pokemon-images">
+                <div class="pokemon-front">
+                    <img src="{{ pokemonData.sprites.front_default }}" />
+                </div>
+                <div class="pokemon-back">
+                    <img src="{{ pokemonData.sprites.back_default }}" />
+                </div>
+            </div>
+            <div class="pokemon-data">
+                <div>NAME: {{ pokemonData.name | uppercase }}</div>
+                <div style="padding-top: 10px">
+                    TYPE:
+                    <span *ngFor="let pokemonType of pokemonData.types; let i = index">
+            {{ pokemonType.type.name | uppercase }}
+            <span *ngIf="pokemonData.types.length - 1 !== i">/</span>
+                    </span>
+                </div>
+                <div style="padding-top: 10px">
+                    STATS:
+                    <div class="stats">
+                        <span *ngFor="let pokemonStats of pokemonData.stats; let i = index">
+              {{ pokemonStats.stat.name | uppercase }} :
+              {{ pokemonStats.base_stat }}
+            </span>
+                    </div>
+                </div>
+                <div style="padding-top: 10px">
+                    LIST OF MOVES(hover on a move for more details):
+                    <div class="moves" *ngIf="pokemonMovesData.length > 0">
+                        <span *ngFor="let pokemonMoves of pokemonMovesData; let i = index">
+              <ng-container *ngIf="i < 10">
+                <span
+                  matTooltip="{{ pokemonMoves[1] }}"
+                  [matTooltipPosition]="'above'"
+                  style="cursor: pointer"
+                  >{{ pokemonMoves[0] + ", " | uppercase }}
+                </span>
+                        </ng-container>
+                        </span>
+                    </div>
+                    <div *ngIf="pokemonMovesData.length === 0">
+                        This pokemon has no moves
+                    </div>
+                </div>
+                <div style="padding-top: 10px">
+                    LOCATIONS FOUND AT:
+                    <div class="locations">
+                        <span *ngFor="let pokemonLocation of pokemonLocationData; let i = index">
+              <ng-container *ngIf="i < 5">
+                <span style="cursor: pointer"
+                  >{{ pokemonLocation + ", " | uppercase }}
+                </span>
+                        </ng-container>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+</div>
